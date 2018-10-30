@@ -3,9 +3,9 @@
 ## Yue Zhang
 ## Summary
   * ### Description 
-  In this project I propose a mapping system that generates 3D maps using the actual environment and objects as input, which can take
-  advantage of the dense color and depth images provided by RGB-D cameras. By tracking feature points and their relation in space, and
-  inferring the camera position, a 3D map can be generated.
+    In this project I propose a mapping system that generates 3D maps using the actual environment and objects as input, which can take
+    advantage of the dense color and depth images provided by RGB-D cameras. By tracking feature points and their relation in space, and
+    inferring the camera position, a 3D map can be generated.
     
     
   * ### Importance 
