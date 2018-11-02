@@ -48,8 +48,11 @@
 
 - [X] Build programming enviroment on Ubuntu 16.04 
     - [X] OpenCV 
-    - [x] PCL
-- [ ] Implement a conversion program from 2D images to 3D point clouds
+    - [x] PCL: 
+      `sudo apt-get install libpcl-dev libpcl-tools`
+      Head files of plc will be installed in `/usr/include/pcl-1.7` and Lib files are in `/usr/lib`
+      
+- [X] Implement a conversion program from 2D images to 3D point clouds
 - [ ] Extract and match the features in one frame with another, and use these features to estimate the motion of the camera by Ransac algorithm.
 - [ ] Joint combination of point cloud. 
 - [ ] Add ability to cope with a video stream.  
