@@ -1,6 +1,4 @@
-# Proposal
 ## Visual Odometry based on RGB-D camera
-## Yue Zhang
 ## Summary
   * ### Description 
     In this project I propose a mapping system that generates 3D maps using the actual environment and objects as input, which can take
