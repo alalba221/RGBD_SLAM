@@ -39,7 +39,7 @@ int main( int argc, char** argv )
     // build a new Point Cloud
     
     //  An enhanced relative of scoped_ptr with reference counted copy semantics.
-    //  The object pointed to is deleted when the last shared_ptr pointing to it
+    //  The object pointed to will be deleted when the last shared_ptr pointing to it
     //  is destroyed or reset.
 //
     PointCloud::Ptr cloud ( new PointCloud );
