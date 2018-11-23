@@ -51,7 +51,7 @@
       Head files of plc will be installed in `/usr/include/pcl-1.7` and Lib files are in `/usr/lib`
       
 - [X] Implement a conversion program from 2D images to 3D point clouds
-- [ ] Extract and match the features in one frame with another, and use these features to estimate the motion of the camera by Ransac algorithm.
+- [X] Extract and match the features in one frame with another, and use these features to estimate the motion of the camera by Ransac algorithm.
 - [ ] Joint combination of point cloud. 
 - [ ] Add ability to cope with a video stream.  
 - [ ] Implement the graph optimization backend to reduces the drift in the trajectory estimate using G2O library.   ( __2 Weeks__ )

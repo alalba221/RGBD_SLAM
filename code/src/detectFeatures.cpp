@@ -92,14 +92,14 @@ int main(int argc,char**argv){
   
   // intrisic parameter of the camera
   
-   CAMERA_INTRINSTIC_PARAMETERS C ;
-   C.cx = 325,5;
-   C.cy = 253.5;
-   C.fx = 518.0;
-   C.fy = 519.0;
-   C.scale = 1000.0;
+  CAMERA_INTRINSTIC_PARAMETERS C ;
+  C.cx = 325,5;
+  C.cy = 253.5;
+  C.fx = 518.0;
+  C.fy = 519.0;
+  C.scale = 1000.0;
   
-   for(size_t i=0; i<goodMatches.size();i++){
+  for(size_t i=0; i<goodMatches.size();i++){
     Point2f p = kp1[ goodMatches[i].queryIdx].pt;
     
     ushort d = depth1.ptr<ushort>( int(p.y) )[ int(p.x) ];
@@ -120,51 +120,21 @@ int main(int argc,char**argv){
     {0, 0, 1}
   };
   // Build intrisic matrix
-   Mat cameraMatrix( 3, 3, CV_64F, camera_matrix_data );
-   Mat rvec, tvec, inliers;
+  Mat cameraMatrix( 3, 3, CV_64F, camera_matrix_data );
+  Mat rvec, tvec, inliers;
   
    //solvePnP ( pts_obj, pts_img, cameraMatrix, Mat(), rvec, tvec,false);
   cv::solvePnPRansac( pts_obj, pts_img, cameraMatrix, cv::Mat(), rvec, tvec, false, 100, 1.0, 0.99, inliers );
-   cout<<"inliers: "<<inliers.rows<<endl;
-   cout<<"R="<<rvec<<endl;
-   cout<<"t="<<tvec<<endl;
-   vector< cv::DMatch > matchesShow;
+  cout<<"inliers: "<<inliers.rows<<endl;
+  cout<<"R="<<rvec<<endl;
+  cout<<"t="<<tvec<<endl;
+  vector< cv::DMatch > matchesShow;
     for (size_t i=0; i<inliers.rows; i++)
     {
-        matchesShow.push_back( goodMatches[inliers.ptr<int>(i)[0]] );    
+      matchesShow.push_back( goodMatches[inliers.ptr<int>(i)[0]] );    
     }
     cv::drawMatches( rgb1, kp1, rgb2, kp2, matchesShow, imgMatches );
     cv::imshow( "inlier matches", imgMatches );
     //cv::imwrite( "./data/inliers.png", imgMatches );
     cv::waitKey( 0 );
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
