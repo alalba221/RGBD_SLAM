@@ -15,6 +15,7 @@ set(CMAKE_TARGET_DEFINITIONS_CXX
   "DISABLE_PNG"
   "EIGEN_USE_NEW_STDVECTOR"
   "EIGEN_YES_I_KNOW_SPARSE_MODULE_IS_NOT_STABLE_YET"
+  "FLANN_STATIC"
   "vtkFiltersFlowPaths_AUTOINIT=1(vtkFiltersParallelFlowPaths)"
   "vtkIOExodus_AUTOINIT=1(vtkIOParallelExodus)"
   "vtkIOGeometry_AUTOINIT=1(vtkIOMPIParallel)"

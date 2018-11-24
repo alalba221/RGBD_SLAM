@@ -134,6 +134,10 @@ generate_pointcloud_EXTERNAL_OBJECTS =
 ../bin/generate_pointcloud: /usr/lib/x86_64-linux-gnu/libxml2.so
 ../bin/generate_pointcloud: /usr/lib/libvtkWrappingTools-6.2.a
 ../bin/generate_pointcloud: /usr/lib/x86_64-linux-gnu/libpcl_io.so
+../bin/generate_pointcloud: /usr/lib/x86_64-linux-gnu/libflann_cpp_s.a
+../bin/generate_pointcloud: /usr/lib/x86_64-linux-gnu/libpcl_kdtree.so
+../bin/generate_pointcloud: /usr/lib/x86_64-linux-gnu/libpcl_search.so
+../bin/generate_pointcloud: /usr/lib/x86_64-linux-gnu/libpcl_visualization.so
 ../bin/generate_pointcloud: /usr/lib/x86_64-linux-gnu/libboost_system.so
 ../bin/generate_pointcloud: /usr/lib/x86_64-linux-gnu/libboost_filesystem.so
 ../bin/generate_pointcloud: /usr/lib/x86_64-linux-gnu/libboost_thread.so
@@ -145,6 +149,7 @@ generate_pointcloud_EXTERNAL_OBJECTS =
 ../bin/generate_pointcloud: /usr/lib/x86_64-linux-gnu/libboost_regex.so
 ../bin/generate_pointcloud: /usr/lib/x86_64-linux-gnu/libpthread.so
 ../bin/generate_pointcloud: /usr/lib/libOpenNI.so
+../bin/generate_pointcloud: /usr/lib/x86_64-linux-gnu/libflann_cpp_s.a
 ../bin/generate_pointcloud: /usr/lib/x86_64-linux-gnu/libvtkImagingStencil-6.2.so.6.2.0
 ../bin/generate_pointcloud: /usr/lib/x86_64-linux-gnu/libz.so
 ../bin/generate_pointcloud: /usr/lib/x86_64-linux-gnu/libjpeg.so
@@ -246,6 +251,9 @@ generate_pointcloud_EXTERNAL_OBJECTS =
 ../bin/generate_pointcloud: /usr/lib/x86_64-linux-gnu/libpcl_common.so
 ../bin/generate_pointcloud: /usr/lib/x86_64-linux-gnu/libpcl_octree.so
 ../bin/generate_pointcloud: /usr/lib/x86_64-linux-gnu/libpcl_io.so
+../bin/generate_pointcloud: /usr/lib/x86_64-linux-gnu/libpcl_kdtree.so
+../bin/generate_pointcloud: /usr/lib/x86_64-linux-gnu/libpcl_search.so
+../bin/generate_pointcloud: /usr/lib/x86_64-linux-gnu/libpcl_visualization.so
 ../bin/generate_pointcloud: /usr/lib/x86_64-linux-gnu/libvtkxdmf2-6.2.so.6.2.0
 ../bin/generate_pointcloud: /usr/lib/x86_64-linux-gnu/libxml2.so
 ../bin/generate_pointcloud: /usr/lib/x86_64-linux-gnu/libpthread.so

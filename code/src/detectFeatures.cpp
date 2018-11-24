@@ -75,7 +75,7 @@ int main(int argc,char**argv){
       goodMatches.push_back(matches[i]);
     }
   }
-  
+  cout<<goodMatches.size()<<endl;
   // show good match points
   drawMatches(rgb1,kp1, rgb2, kp2, goodMatches, imgMatches);
   imshow("good matches", imgMatches);
@@ -124,7 +124,7 @@ int main(int argc,char**argv){
   Mat rvec, tvec, inliers;
   
    //solvePnP ( pts_obj, pts_img, cameraMatrix, Mat(), rvec, tvec,false);
-  cv::solvePnPRansac( pts_obj, pts_img, cameraMatrix, cv::Mat(), rvec, tvec, false, 100, 1.0, 0.99, inliers );
+  cv::solvePnPRansac( pts_obj, pts_img, cameraMatrix, cv::Mat(), rvec, tvec, false, 100, 4.0, 0.99, inliers );
   cout<<"inliers: "<<inliers.rows<<endl;
   cout<<"R="<<rvec<<endl;
   cout<<"t="<<tvec<<endl;

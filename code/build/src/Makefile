@@ -111,6 +111,21 @@ depend:
 .PHONY : depend
 
 # Convenience name for target.
+src/CMakeFiles/joinPointCloud.dir/rule:
+	cd /home/zy/Projects/RGBD_SLAM/code/build && $(MAKE) -f CMakeFiles/Makefile2 src/CMakeFiles/joinPointCloud.dir/rule
+.PHONY : src/CMakeFiles/joinPointCloud.dir/rule
+
+# Convenience name for target.
+joinPointCloud: src/CMakeFiles/joinPointCloud.dir/rule
+
+.PHONY : joinPointCloud
+
+# fast build rule for target.
+joinPointCloud/fast:
+	cd /home/zy/Projects/RGBD_SLAM/code/build && $(MAKE) -f src/CMakeFiles/joinPointCloud.dir/build.make src/CMakeFiles/joinPointCloud.dir/build
+.PHONY : joinPointCloud/fast
+
+# Convenience name for target.
 src/CMakeFiles/main.dir/rule:
 	cd /home/zy/Projects/RGBD_SLAM/code/build && $(MAKE) -f CMakeFiles/Makefile2 src/CMakeFiles/main.dir/rule
 .PHONY : src/CMakeFiles/main.dir/rule
@@ -141,6 +156,21 @@ slambase/fast:
 .PHONY : slambase/fast
 
 # Convenience name for target.
+src/CMakeFiles/detectFeatures.dir/rule:
+	cd /home/zy/Projects/RGBD_SLAM/code/build && $(MAKE) -f CMakeFiles/Makefile2 src/CMakeFiles/detectFeatures.dir/rule
+.PHONY : src/CMakeFiles/detectFeatures.dir/rule
+
+# Convenience name for target.
+detectFeatures: src/CMakeFiles/detectFeatures.dir/rule
+
+.PHONY : detectFeatures
+
+# fast build rule for target.
+detectFeatures/fast:
+	cd /home/zy/Projects/RGBD_SLAM/code/build && $(MAKE) -f src/CMakeFiles/detectFeatures.dir/build.make src/CMakeFiles/detectFeatures.dir/build
+.PHONY : detectFeatures/fast
+
+# Convenience name for target.
 src/CMakeFiles/generate_pointcloud.dir/rule:
 	cd /home/zy/Projects/RGBD_SLAM/code/build && $(MAKE) -f CMakeFiles/Makefile2 src/CMakeFiles/generate_pointcloud.dir/rule
 .PHONY : src/CMakeFiles/generate_pointcloud.dir/rule
@@ -154,6 +184,33 @@ generate_pointcloud: src/CMakeFiles/generate_pointcloud.dir/rule
 generate_pointcloud/fast:
 	cd /home/zy/Projects/RGBD_SLAM/code/build && $(MAKE) -f src/CMakeFiles/generate_pointcloud.dir/build.make src/CMakeFiles/generate_pointcloud.dir/build
 .PHONY : generate_pointcloud/fast
+
+detectFeatures.o: detectFeatures.cpp.o
+
+.PHONY : detectFeatures.o
+
+# target to build an object file
+detectFeatures.cpp.o:
+	cd /home/zy/Projects/RGBD_SLAM/code/build && $(MAKE) -f src/CMakeFiles/detectFeatures.dir/build.make src/CMakeFiles/detectFeatures.dir/detectFeatures.cpp.o
+.PHONY : detectFeatures.cpp.o
+
+detectFeatures.i: detectFeatures.cpp.i
+
+.PHONY : detectFeatures.i
+
+# target to preprocess a source file
+detectFeatures.cpp.i:
+	cd /home/zy/Projects/RGBD_SLAM/code/build && $(MAKE) -f src/CMakeFiles/detectFeatures.dir/build.make src/CMakeFiles/detectFeatures.dir/detectFeatures.cpp.i
+.PHONY : detectFeatures.cpp.i
+
+detectFeatures.s: detectFeatures.cpp.s
+
+.PHONY : detectFeatures.s
+
+# target to generate assembly for a file
+detectFeatures.cpp.s:
+	cd /home/zy/Projects/RGBD_SLAM/code/build && $(MAKE) -f src/CMakeFiles/detectFeatures.dir/build.make src/CMakeFiles/detectFeatures.dir/detectFeatures.cpp.s
+.PHONY : detectFeatures.cpp.s
 
 generatePointCloud.o: generatePointCloud.cpp.o
 
@@ -181,6 +238,33 @@ generatePointCloud.s: generatePointCloud.cpp.s
 generatePointCloud.cpp.s:
 	cd /home/zy/Projects/RGBD_SLAM/code/build && $(MAKE) -f src/CMakeFiles/generate_pointcloud.dir/build.make src/CMakeFiles/generate_pointcloud.dir/generatePointCloud.cpp.s
 .PHONY : generatePointCloud.cpp.s
+
+joinPointCloud.o: joinPointCloud.cpp.o
+
+.PHONY : joinPointCloud.o
+
+# target to build an object file
+joinPointCloud.cpp.o:
+	cd /home/zy/Projects/RGBD_SLAM/code/build && $(MAKE) -f src/CMakeFiles/joinPointCloud.dir/build.make src/CMakeFiles/joinPointCloud.dir/joinPointCloud.cpp.o
+.PHONY : joinPointCloud.cpp.o
+
+joinPointCloud.i: joinPointCloud.cpp.i
+
+.PHONY : joinPointCloud.i
+
+# target to preprocess a source file
+joinPointCloud.cpp.i:
+	cd /home/zy/Projects/RGBD_SLAM/code/build && $(MAKE) -f src/CMakeFiles/joinPointCloud.dir/build.make src/CMakeFiles/joinPointCloud.dir/joinPointCloud.cpp.i
+.PHONY : joinPointCloud.cpp.i
+
+joinPointCloud.s: joinPointCloud.cpp.s
+
+.PHONY : joinPointCloud.s
+
+# target to generate assembly for a file
+joinPointCloud.cpp.s:
+	cd /home/zy/Projects/RGBD_SLAM/code/build && $(MAKE) -f src/CMakeFiles/joinPointCloud.dir/build.make src/CMakeFiles/joinPointCloud.dir/joinPointCloud.cpp.s
+.PHONY : joinPointCloud.cpp.s
 
 main.o: main.cpp.o
 
@@ -243,13 +327,21 @@ help:
 	@echo "... clean"
 	@echo "... depend"
 	@echo "... edit_cache"
+	@echo "... rebuild_cache"
+	@echo "... joinPointCloud"
 	@echo "... main"
 	@echo "... slambase"
+	@echo "... detectFeatures"
 	@echo "... generate_pointcloud"
-	@echo "... rebuild_cache"
+	@echo "... detectFeatures.o"
+	@echo "... detectFeatures.i"
+	@echo "... detectFeatures.s"
 	@echo "... generatePointCloud.o"
 	@echo "... generatePointCloud.i"
 	@echo "... generatePointCloud.s"
+	@echo "... joinPointCloud.o"
+	@echo "... joinPointCloud.i"
+	@echo "... joinPointCloud.s"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"
