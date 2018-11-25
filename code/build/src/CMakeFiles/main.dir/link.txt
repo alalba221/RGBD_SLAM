@@ -1,1 +1,0 @@
-g++     -g    CMakeFiles/main.dir/main.cpp.o  -o ../../bin/main  -L/home/zy/Projects/RGBD_SLAM/code/lib -rdynamic 

@@ -6,7 +6,7 @@ find_package( OpenCV REQUIRED )
 include_directories( ${OpenCV_INCLUDE_DIRS} )
 
 # pcl 
-find_package( PCL REQUIRED COMPONENT common io visualization )
+find_package( PCL REQUIRED COMPONENT common io visualization filters )
 include_directories( ${PCL_INCLUDE_DIRS} )
 add_definitions( ${PCL_DEFINITIONS} )
 
@@ -28,6 +28,12 @@ TARGET_LINK_LIBRARIES( detectFeatures
 
 ADD_EXECUTABLE( joinPointCloud joinPointCloud.cpp)
 TARGET_LINK_LIBRARIES( joinPointCloud
+    slambase
+    ${OpenCV_LIBS} 
+    ${PCL_LIBRARIES} )
+    
+ADD_EXECUTABLE( visualOdometry visualOdometry.cpp)
+TARGET_LINK_LIBRARIES( visualOdometry
     slambase
     ${OpenCV_LIBS} 
     ${PCL_LIBRARIES} )

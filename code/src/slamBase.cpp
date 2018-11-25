@@ -1,6 +1,6 @@
 #include "slamBase.h"
 using namespace cv;
-
+#include <opencv2/core/eigen.hpp>
 PointCloud::Ptr image2PointCloud( cv::Mat& rgb, cv::Mat& depth, CAMERA_INTRINSTIC_PARAMETERS & camera )
 {
     PointCloud::Ptr cloud ( new PointCloud );
@@ -137,4 +137,52 @@ RESULT_OF_PNP estimateMotion( FRAME& frame1, FRAME& frame2, CAMERA_INTRINSTIC_PA
 	//cout<<result.inliers<<endl;
 
     return result;
+}
+
+
+// cvMat2Eigen
+Eigen::Isometry3d cvMat2Eigen( cv::Mat& rvec, cv::Mat& tvec )
+{
+    cv::Mat R;
+    cv::Rodrigues( rvec, R );
+    Eigen::Matrix3d r;
+	cv::cv2eigen(R, r);// convert cv format to eigen format
+   /*
+	for ( int i=0; i<3; i++ )
+        for ( int j=0; j<3; j++ ) 
+            r(i,j) = R.at<double>(i,j);
+  */
+    // combine Rotate matrix and Tranlate vector to Transform matrix
+    Eigen::Isometry3d T = Eigen::Isometry3d::Identity();
+
+    Eigen::AngleAxisd angle(r);
+    T = angle;
+    T(0,3) = tvec.at<double>(0,0); 
+    T(1,3) = tvec.at<double>(1,0); 
+    T(2,3) = tvec.at<double>(2,0);
+    return T;
+}
+
+
+// 	joinPointCloud 
+//	Input: Origin cloud, new frame and its Transform matrix
+// 	Output: New cloud
+PointCloud::Ptr joinPointCloud( PointCloud::Ptr original, FRAME& newFrame, Eigen::Isometry3d T, CAMERA_INTRINSTIC_PARAMETERS& camera ) 
+{
+    PointCloud::Ptr newCloud = image2PointCloud( newFrame.rgb, newFrame.depth, camera );
+
+    // Joint the cloud
+    PointCloud::Ptr output (new PointCloud());
+    pcl::transformPointCloud( *original, *output, T.matrix() );
+    *newCloud += *output;
+
+    // Voxel grid 
+    static pcl::VoxelGrid<PointT> voxel;
+    static ParameterReader pd;
+    double gridsize = atof( pd.getData("voxel_grid").c_str() );
+    voxel.setLeafSize( gridsize, gridsize, gridsize );
+    voxel.setInputCloud( newCloud );
+    PointCloud::Ptr tmp( new PointCloud() );
+    voxel.filter( *tmp );
+    return tmp;
 }
