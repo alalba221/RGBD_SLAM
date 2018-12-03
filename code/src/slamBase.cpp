@@ -100,7 +100,7 @@ RESULT_OF_PNP estimateMotion( FRAME& frame1, FRAME& frame2, CAMERA_INTRINSTIC_PA
     //  2D point for the second frame
     vector< cv::Point2f > pts_img;
 
-    // intrinsic parameter of the cam
+
     for (size_t i=0; i<goodMatches.size(); i++)
     {
         // query is for the first, train is for the second
@@ -116,7 +116,7 @@ RESULT_OF_PNP estimateMotion( FRAME& frame1, FRAME& frame2, CAMERA_INTRINSTIC_PA
         cv::Point3f pd = point2dTo3d( pt, camera );
         pts_obj.push_back( pd );
     }
-
+    // intrinsic parameter of the cam
     double camera_matrix_data[3][3] = {
         {camera.fx, 0, camera.cx},
         {0, camera.fy, camera.cy},
@@ -128,7 +128,7 @@ RESULT_OF_PNP estimateMotion( FRAME& frame1, FRAME& frame2, CAMERA_INTRINSTIC_PA
     cv::Mat cameraMatrix( 3, 3, CV_64F, camera_matrix_data );
     cv::Mat rvec, tvec, inliers;
     // solve PnP
-    cv::solvePnPRansac( pts_obj, pts_img, cameraMatrix, cv::Mat(), rvec, tvec, false, 100, 8.0, 0.99, inliers );
+    cv::solvePnPRansac( pts_obj, pts_img, cameraMatrix, cv::Mat(), rvec, tvec, false, 100, 1.0, 0.99, inliers );
 	//cv::solvePnP( pts_obj, pts_img, cameraMatrix, cv::Mat(), rvec, tvec, false);
     RESULT_OF_PNP result;
     result.rvec = rvec;
@@ -177,6 +177,7 @@ PointCloud::Ptr joinPointCloud( PointCloud::Ptr original, FRAME& newFrame, Eigen
     *newCloud += *output;
 
     // Voxel grid 
+	// adjust the resolution of the map
     static pcl::VoxelGrid<PointT> voxel;
     static ParameterReader pd;
     double gridsize = atof( pd.getData("voxel_grid").c_str() );

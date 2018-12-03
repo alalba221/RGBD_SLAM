@@ -18,7 +18,7 @@ using namespace std;
 
 //read a Frane with particular index
 FRAME readFrame( int index, ParameterReader& pd );
-// 估计一个运动的大小
+// estimate the motion 
 double normofTransform( cv::Mat rvec, cv::Mat tvec );
 
 int main( int argc, char** argv )
@@ -68,11 +68,11 @@ int main( int argc, char** argv )
     // add vertex to the globalOptimizer
     g2o::VertexSE3* v = new g2o::VertexSE3();
     v->setId( currIndex );
-    v->setEstimate( Eigen::Isometry3d::Identity() ); //估计为单位矩阵
-    v->setFixed( true ); //第一个顶点固定，不用优化
+    v->setEstimate( Eigen::Isometry3d::Identity() ); //
+    v->setFixed( true ); // The first Vertex
     globalOptimizer.addVertex( v );
 
-    int lastIndex = currIndex; // 上一帧的id
+    int lastIndex = currIndex; // 
 
     for ( currIndex=startIndex+1; currIndex<endIndex; currIndex++ )
     {
@@ -95,7 +95,7 @@ int main( int argc, char** argv )
         Eigen::Isometry3d T = cvMat2Eigen( result.rvec, result.tvec );
         cout<<"T="<<T.matrix()<<endl;
         
-        // 去掉可视化的话，会快一些
+        // 
         if ( visualize == true )
         {
             cloud = joinPointCloud( cloud, currFrame, T, camera );
@@ -125,7 +125,7 @@ int main( int argc, char** argv )
         // 也可以将角度设大一些，表示对角度的估计更加准确
         edge->setInformation( information );
         // 边的估计即是pnp求解之结果
-        edge->setMeasurement( T );
+        edge->setMeasurement(T);
         // 将此边加入图中
         globalOptimizer.addEdge(edge);
 
@@ -133,8 +133,11 @@ int main( int argc, char** argv )
         lastIndex = currIndex;
 
     }
+    
+    pcl::io::savePCDFile("../data/result_g2o.pcd", *cloud);
 
-    // 优化所有边
+
+    // Opimize all edges
     cout<<"optimizing pose graph, vertices: "<<globalOptimizer.vertices().size()<<endl;
     globalOptimizer.save("../data/result_before.g2o");
     globalOptimizer.initializeOptimization();
