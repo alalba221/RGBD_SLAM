@@ -1,4 +1,13 @@
 ## Visual Odometry based on RGB-D camera
+## How to run it
+- cd code
+- mkdir build
+- cd build
+- cmake ..
+- make
+- cd ../bin
+
+
 ## Summary
   * ### Description 
     In this project I propose a mapping system that generates 3D maps using the actual environment and objects as input, which can take
