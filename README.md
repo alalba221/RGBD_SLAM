@@ -63,6 +63,6 @@
 - [X] Extract and match the features in one frame with another, and use these features to estimate the motion of the camera by PnP Ransac algorithm.
 - [X] Joint combination of point cloud. 
 - [X] Add ability to cope with a video stream.  
-- [X] Implement the graph optimization backend to reduces the drift in the trajectory estimate using G2O library.   ( __2 Weeks__ )
-- [X] Loop closure.   ( __2 Weeks__ )
+- [X] Implement the graph optimization backend to reduces the drift in the trajectory estimate using G2O library. 
+- [X] Loop closure. 
 - [X] Map Representation
